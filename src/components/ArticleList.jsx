@@ -8,11 +8,14 @@ const ArticleList = () => {
       setArticles(articles);
     });
   }, []);
-  return (
-    <section>
-      <p>{articles[0].title}</p>
-    </section>
-  );
+  return articles.map((article) => {
+    return (
+      <li key={article.article_id} className="article-list">
+        <h2>{article.title}</h2>
+        <h3>{article.author}</h3>
+      </li>
+    );
+  });
 };
 
 export default ArticleList;
