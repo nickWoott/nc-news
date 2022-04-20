@@ -7,6 +7,8 @@ import { Routes, Route } from "react-router-dom";
 import { useState } from "react";
 import DisplayArticle from "./components/DisplayArticle";
 import DisplayComments from "./components/DisplayComments";
+import ViewComments from "./components/ViewComments";
+import WriteComment from "./components/WriteComment";
 
 function App() {
   const [articles, setArticles] = useState([]);
@@ -32,7 +34,10 @@ function App() {
                 selectedArticle={selectedArticle}
                 setSelectedArticle={setSelectedArticle}
               />
-              <DisplayComments selectedArticle={selectedArticle} />
+              <ViewComments>
+                <DisplayComments selectedArticle={selectedArticle} />
+              </ViewComments>
+              <WriteComment />
             </>
           }
         />
