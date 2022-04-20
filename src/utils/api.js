@@ -35,3 +35,9 @@ export const increaseVotes = (id, increment) => {
       return data;
     });
 };
+
+export const getComments = (id) => {
+  return newsApi.get(`/articles/${id}/comments`).then(({ data }) => {
+    return data;
+  });
+};

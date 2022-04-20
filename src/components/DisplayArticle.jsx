@@ -3,7 +3,7 @@ import { getArticle } from "../utils/api";
 import { useState, useEffect } from "react";
 import { increaseVotes } from "../utils/api";
 
-const DisplayArticle = () => {
+const DisplayArticle = ({ selectedArticle, setSelectedArticle }) => {
   const clickHandler = (e, increment) => {
     setVotes((currVotes) => {
       const newVotes = currVotes + increment;
@@ -13,7 +13,7 @@ const DisplayArticle = () => {
   };
 
   const { article_id } = useParams();
-  const [selectedArticle, setSelectedArticle] = useState({});
+
   const [votes, setVotes] = useState(selectedArticle.votes);
 
   useEffect(() => {
