@@ -5,6 +5,7 @@ import NavList from "./components/NavList";
 import TopicList from "./components/TopicList";
 import { Routes, Route } from "react-router-dom";
 import { useState } from "react";
+import DisplayArticle from "./components/DisplayArticle";
 
 function App() {
   const [articles, setArticles] = useState([]);
@@ -21,6 +22,7 @@ function App() {
           path="/articles/:topic"
           element={<TopicList setArticles={setArticles} articles={articles} />}
         />
+        <Route path="/article/:article_id" element={<DisplayArticle />} />
       </Routes>
     </div>
   );
