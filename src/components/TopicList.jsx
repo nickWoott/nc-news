@@ -1,13 +1,12 @@
 import { getArticles } from "../utils/api";
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
-const ArticleList = () => {
-  const [articles, setArticles] = useState([]);
-  useEffect(() => {
-    getArticles().then((articles) => {
-      setArticles(articles);
-    });
-  }, []);
+const TopicList = ({ articles, setArticles }) => {
+  const { topic } = useParams();
+  getArticles(topic).then((articles) => {
+    setArticles(articles);
+  });
   return articles.map((article) => {
     return (
       <li key={article.article_id} className="article-list">
@@ -18,4 +17,4 @@ const ArticleList = () => {
   });
 };
 
-export default ArticleList;
+export default TopicList;
