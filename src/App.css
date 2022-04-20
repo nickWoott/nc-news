@@ -1,9 +1,19 @@
 .App {
   text-align: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: rgb(236, 217, 142);
 }
 
 .article-list {
   list-style-type: none;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+  padding: 20px;
+}
+
+.navList {
+  list-style-type: none;
+  border-style: hidden;
+  background-color: whitesmoke;
+  margin: auto;
   padding: 20px;
 }
