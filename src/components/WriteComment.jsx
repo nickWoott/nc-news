@@ -5,12 +5,9 @@ import { useParams } from "react-router-dom";
 const WriteComment = () => {
   const [message, setMessage] = useState("");
   const { article_id } = useParams();
-  console.log(article_id);
   const submitHandler = (e) => {
     e.preventDefault();
     setMessage("comment posted");
-    console.log(e.target.username.value, "<< username");
-    console.log(e.target.comment.value, "<< comment");
     postComment(article_id, e.target.username.value, e.target.comment.value)
       .then(() => {})
       .catch((err) => {
