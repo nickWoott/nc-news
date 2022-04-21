@@ -12,7 +12,6 @@ const DisplayComments = ({ selectedArticle }) => {
   return (
     <>
       <h3>comments</h3>
-      <button>add comment</button>
 
       {comments.map((comment) => {
         return (

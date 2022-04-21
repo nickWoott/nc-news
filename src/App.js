@@ -35,9 +35,9 @@ function App() {
                 setSelectedArticle={setSelectedArticle}
               />
               <ViewComments>
+                <WriteComment />
                 <DisplayComments selectedArticle={selectedArticle} />
               </ViewComments>
-              <WriteComment />
             </>
           }
         />
