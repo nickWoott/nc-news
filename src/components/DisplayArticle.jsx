@@ -4,39 +4,40 @@ import { useState, useEffect } from "react";
 import { increaseVotes } from "../utils/api";
 
 const DisplayArticle = ({ selectedArticle, setSelectedArticle }) => {
-  const clickHandler = (e, increment) => {
+  const clickHandler = (increment) => {
     setVotes((currVotes) => {
       const newVotes = currVotes + increment;
       return newVotes;
     });
-    increaseVotes(article_id, increment).then((res) => {});
+    increaseVotes(article_id, increment);
   };
 
   const { article_id } = useParams();
 
-  const [votes, setVotes] = useState(selectedArticle.votes);
+  const [votes, setVotes] = useState(0);
 
   useEffect(() => {
     getArticle(article_id).then((article) => {
       setSelectedArticle(article);
+      setVotes(article.votes);
     });
-  }, [votes]);
+  }, []);
   return (
     <div>
       <h2>{selectedArticle.title}</h2>
       <p>{selectedArticle.body}</p>
       <h3>{selectedArticle.author}</h3>
-      <p>votes: {selectedArticle.votes}</p>
+      <p>votes: {votes}</p>
       <button
-        onClick={(e) => {
-          clickHandler(e, 1);
+        onClick={() => {
+          clickHandler(1);
         }}
       >
         👍
       </button>
       <button
-        onClick={(e) => {
-          clickHandler(e, -1);
+        onClick={() => {
+          clickHandler(-1);
         }}
       >
         👎
