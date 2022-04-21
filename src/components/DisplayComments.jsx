@@ -6,13 +6,11 @@ const DisplayComments = ({ selectedArticle }) => {
   useEffect(() => {
     getComments(selectedArticle.article_id).then((comments) => {
       setComments(comments);
-      console.log(comments, "<<< comments");
     });
   }, [selectedArticle]);
   return (
     <>
       <h3>comments</h3>
-      <button>add comment</button>
 
       {comments.map((comment) => {
         return (

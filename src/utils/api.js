@@ -41,3 +41,11 @@ export const getComments = (id) => {
     return data;
   });
 };
+
+export const postComment = (id, username, comment) => {
+  return newsApi
+    .post(`/articles/${id}/comments`, { username: username, body: comment })
+    .then(({ data }) => {
+      return data;
+    });
+};
