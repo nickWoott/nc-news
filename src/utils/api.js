@@ -27,3 +27,11 @@ export const getArticle = (id) => {
     return data;
   });
 };
+
+export const increaseVotes = (id, increment) => {
+  return newsApi
+    .patch(`/articles/${id}`, { inc_votes: increment })
+    .then(({ data }) => {
+      return data;
+    });
+};
