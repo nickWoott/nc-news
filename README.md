@@ -1,7 +1,3 @@
-## Link to Deployed App
-
-https://subtle-malabi-2b6365.netlify.app
-
 ## General Info
 
 This app allows you to view news articles. The list of articles is intially populated based on topic. Articles can then be sorted using a variety of parameters in the drop down menu. Comments can be viewed on each article and comments can be added by exsisting users.
