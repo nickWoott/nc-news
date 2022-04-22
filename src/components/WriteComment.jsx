@@ -7,9 +7,10 @@ const WriteComment = () => {
   const { article_id } = useParams();
   const submitHandler = (e) => {
     e.preventDefault();
-    setMessage("comment posted");
     postComment(article_id, e.target.username.value, e.target.comment.value)
-      .then(() => {})
+      .then(() => {
+        setMessage("comment posted");
+      })
       .catch((err) => {
         setMessage("please enter a valid username");
       });
@@ -24,10 +25,10 @@ const WriteComment = () => {
           }}
         >
           <label htmlFor="username"></label>
-          <input type="text" id="username"></input>
+          <input type="text" id="username" required></input>
 
           <label htmlFor="comment"></label>
-          <input type="text" id="comment"></input>
+          <input type="text" id="comment" required></input>
 
           <button type="submit">post</button>
         </form>
@@ -43,7 +44,7 @@ const ShowForm = ({ children }) => {
 
   return (
     <div>
-      <button onClick={toggleOpen}>
+      <button className="postComment_button" onClick={toggleOpen}>
         {isOpen ? "Discard Comment" : "Post Comment"}
       </button>
       {isOpen && children}

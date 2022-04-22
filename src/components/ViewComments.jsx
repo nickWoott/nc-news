@@ -7,7 +7,7 @@ const ViewComments = ({ children }) => {
 
   return (
     <div>
-      <button onClick={toggleOpen}>
+      <button className="viewComments_button" onClick={toggleOpen}>
         {isOpen ? "Close Comments" : "View Comments"}
       </button>
       {isOpen && children}

@@ -3,28 +3,25 @@ import { getComments, deleteComment } from "../utils/api";
 
 const DisplayComments = ({ selectedArticle, setSelectedArticle }) => {
   const [comments, setComments] = useState([]);
-  const [deleted, setDeleted] = useState(false);
+  const [deleteConfirmation, setDeleteConfirmation] = useState(false);
 
   const clickHandler = (comment_id) => {
-    console.log("clickhandler working");
-    console.log(selectedArticle.article_id, "<<this is the article id");
     deleteComment(comment_id);
-    setDeleted(true);
-    console.log(deleted, "this is the deleted state");
+    setDeleteConfirmation(true);
   };
   useEffect(() => {
     getComments(selectedArticle.article_id).then((comments) => {
       setComments(comments);
-      setDeleted(false);
+      setDeleteConfirmation(false);
     });
-  }, [selectedArticle, deleted]);
+  }, [selectedArticle, deleteConfirmation]);
   return (
     <>
       <h3>comments</h3>
 
       {comments.map((comment) => {
         return (
-          <>
+          <li className="comments_listItem" key={comment.comment_id}>
             <p>{comment.body}</p>
             <p>{comment.author}</p>
             <button
@@ -34,7 +31,7 @@ const DisplayComments = ({ selectedArticle, setSelectedArticle }) => {
             >
               delete comment
             </button>
-          </>
+          </li>
         );
       })}
     </>

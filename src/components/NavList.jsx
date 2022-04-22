@@ -10,16 +10,16 @@ const NavList = () => {
     });
   }, []);
   return (
-    <ul>
-      <Link to="/articles">
-        <li className="navList">all articles</li>
+    <ul className="navList">
+      <Link className="navList_link" to="/articles">
+        <li className="navList_item">all articles</li>
       </Link>
 
       {topics.map((topic) => {
         return (
-          <Link to={`/articles/${topic.slug}`}>
+          <Link className="navList_link" to={`/articles/${topic.slug}`}>
             {" "}
-            <li className="navList" key={topic.slug}>
+            <li className="navList_item" key={topic.slug}>
               {topic.slug}
             </li>
           </Link>

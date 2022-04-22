@@ -2,14 +2,16 @@ import { getArticles } from "../utils/api";
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 
-const TopicList = ({ articles, setArticles }) => {
+const ArticleList = ({ articles, setArticles }) => {
   const { topic } = useParams();
   const [sort, setSort] = useState("author");
   const [order, setOrder] = useState("asc");
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     getArticles(topic, sort, order).then((articles) => {
       setArticles(articles);
+      setIsLoading(false);
     });
   }, [topic, sort, order]);
 
@@ -21,11 +23,20 @@ const TopicList = ({ articles, setArticles }) => {
     setOrder(e.target.value);
     console.log(e.target.value);
   };
+  if (isLoading) {
+    return <p>loading</p>;
+  }
+  if (!isLoading && !articles.length) {
+    return <p>no articles found</p>;
+  }
 
   return (
     <>
-      <label htmlFor="sort">sort by</label>
+      <label className="select" htmlFor="sort">
+        sort by
+      </label>
       <select
+        className="select"
         name="sort"
         id="sort"
         onChange={(e) => {
@@ -38,6 +49,7 @@ const TopicList = ({ articles, setArticles }) => {
       </select>
       <label htmlFor="order"></label>
       <select
+        className="select"
         name="order"
         id="order"
         onChange={(e) => {
@@ -49,8 +61,11 @@ const TopicList = ({ articles, setArticles }) => {
       </select>
       {articles.map((article) => {
         return (
-          <li key={article.article_id} className="article-list">
-            <Link to={`/article/${article.article_id}`}>
+          <li key={article.article_id} className="article-list_item">
+            <Link
+              className="article-list_link"
+              to={`/article/${article.article_id}`}
+            >
               <h2>{article.title}</h2>
             </Link>
             <h3>{article.author}</h3>
@@ -60,4 +75,4 @@ const TopicList = ({ articles, setArticles }) => {
     </>
   );
 };
-export default TopicList;
+export default ArticleList;
