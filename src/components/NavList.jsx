@@ -11,17 +11,21 @@ const NavList = () => {
   }, []);
   return (
     <ul className="navList">
-      <Link className="navList_link" to="/articles">
-        <li className="navList_item">all articles</li>
+      <Link key="allarticles" className="navList_link" to="/articles">
+        <li key="allArticles" className="navList_item">
+          all articles
+        </li>
       </Link>
 
       {topics.map((topic) => {
         return (
-          <Link className="navList_link" to={`/articles/${topic.slug}`}>
+          <Link
+            key={topic.slug}
+            className="navList_link"
+            to={`/articles/${topic.slug}`}
+          >
             {" "}
-            <li className="navList_item" key={topic.slug}>
-              {topic.slug}
-            </li>
+            <li className="navList_item">{topic.slug}</li>
           </Link>
         );
       })}

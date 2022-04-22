@@ -32,7 +32,7 @@ const SingleArticle = () => {
         setIsLoading(false);
         console.log(selectedArticle);
       });
-  }, []);
+  });
   if (isLoading) {
     return <p>please wait articles loading</p>;
   }

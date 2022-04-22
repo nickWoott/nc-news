@@ -13,7 +13,7 @@ const ArticleList = ({ articles, setArticles }) => {
       setArticles(articles);
       setIsLoading(false);
     });
-  }, [topic, sort, order]);
+  }, [topic, sort, order, setArticles]);
 
   const sortHandler = (e) => {
     setSort(e.target.value);

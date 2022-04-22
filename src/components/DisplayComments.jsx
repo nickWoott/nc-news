@@ -1,4 +1,4 @@
-import { useState, useEffect, useParams } from "react";
+import { useState, useEffect } from "react";
 import { getComments, deleteComment } from "../utils/api";
 
 const DisplayComments = ({ selectedArticle, setSelectedArticle }) => {
