@@ -8,6 +8,7 @@ a:visited {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   background-color: rgb(236, 217, 142);
   padding: 10px;
+  min-height: 100vh;
 }
 
 .App-header {
@@ -29,7 +30,12 @@ a:visited {
   text-decoration: none;
 }
 
-.article-list {
+.article-list_link {
+  text-decoration: none;
+  text-align: center;
+}
+
+.article-list_item {
   list-style-type: none;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   border: hidden;
@@ -37,6 +43,14 @@ a:visited {
   padding: 20px;
   margin: 15px;
   background-color: whitesmoke;
+  width: auto;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 700px;
+}
+.select {
+  font-size: larger;
 }
 
 navList {
@@ -47,15 +61,72 @@ navList {
   text-decoration: none;
 }
 .navList_item {
-  text-align: left;
-  font-size: larger;
+  text-align: center;
+  font-size: 30px;
   text-decoration: none;
   list-style-type: none;
   border-style: hidden;
   background-color: whitesmoke;
   margin: 10px;
+  margin-left: auto;
+  margin-right: auto;
   padding: 30px;
   border-radius: 30px;
-  width: auto;
+  max-width: 150px;
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.article_title {
+  font-size: 30px;
+}
+
+.article_body {
+  background-color: whitesmoke;
+  border-radius: 30px;
+  padding: 20px;
+  padding-left: 50px;
+  padding-right: 50px;
+  font-size: large;
+  max-width: 700px;
+  text-align: left;
+  line-height: 1.6;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.article_vote_button {
+  font-size: larger;
+  height: 35px;
+  margin-bottom: 20px;
+}
+
+.article_votes {
+  font-size: large;
+}
+
+.viewComments_button {
+  font-size: larger;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.postComment_button {
+  font-size: larger;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.comments_listItem {
+  background-color: whitesmoke;
+  border: hidden;
+  border-radius: 30px;
+  margin: 10px;
+  list-style-type: none;
+  padding: 20px;
+  max-width: 700px;
+  text-align: left;
+  line-height: 1.6;
+  margin-left: auto;
+  margin-right: auto;
 }

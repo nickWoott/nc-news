@@ -44,7 +44,7 @@ const ShowForm = ({ children }) => {
 
   return (
     <div>
-      <button onClick={toggleOpen}>
+      <button className="postComment_button" onClick={toggleOpen}>
         {isOpen ? "Discard Comment" : "Post Comment"}
       </button>
       {isOpen && children}

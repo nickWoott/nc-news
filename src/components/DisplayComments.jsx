@@ -21,7 +21,7 @@ const DisplayComments = ({ selectedArticle, setSelectedArticle }) => {
 
       {comments.map((comment) => {
         return (
-          <li key={comment.comment_id}>
+          <li className="comments_listItem" key={comment.comment_id}>
             <p>{comment.body}</p>
             <p>{comment.author}</p>
             <button
