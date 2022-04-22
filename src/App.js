@@ -36,7 +36,10 @@ function App() {
               />
               <ViewComments>
                 <WriteComment />
-                <DisplayComments selectedArticle={selectedArticle} />
+                <DisplayComments
+                  selectedArticle={selectedArticle}
+                  setSelectedArticle={setSelectedArticle}
+                />
               </ViewComments>
             </>
           }
