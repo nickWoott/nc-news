@@ -1,10 +1,10 @@
-import { useParams } from "react-router-dom";
-import { getArticle } from "../utils/api";
-import { useState, useEffect } from "react";
-import { increaseVotes } from "../utils/api";
-import ViewComments from "./ViewComments";
-import WriteComment from "./WriteComment";
-import DisplayComments from "./DisplayComments";
+import { useParams } from 'react-router-dom';
+import { getArticle } from '../utils/api';
+import { useState, useEffect } from 'react';
+import { increaseVotes } from '../utils/api';
+import ViewComments from './ViewComments';
+import WriteComment from './WriteComment';
+import DisplayComments from './DisplayComments';
 
 const SingleArticle = () => {
   const [selectedArticle, setSelectedArticle] = useState({});
@@ -32,7 +32,7 @@ const SingleArticle = () => {
         setIsLoading(false);
         console.log(selectedArticle);
       });
-  });
+  }, []);
   if (isLoading) {
     return <p>please wait articles loading</p>;
   }
@@ -41,12 +41,12 @@ const SingleArticle = () => {
   }
   return (
     <div>
-      <h2 className="article_title">{selectedArticle.title}</h2>
-      <p className="article_body">{selectedArticle.body}</p>
-      <h3 className="article_author">{selectedArticle.author}</h3>
-      <p className="article_votes">votes: {votes}</p>
+      <h2 className='article_title'>{selectedArticle.title}</h2>
+      <p className='article_body'>{selectedArticle.body}</p>
+      <h3 className='article_author'>{selectedArticle.author}</h3>
+      <p className='article_votes'>votes: {votes}</p>
       <button
-        className="article_vote_button"
+        className='article_vote_button'
         onClick={() => {
           clickHandler(1);
         }}
@@ -54,7 +54,7 @@ const SingleArticle = () => {
         👍
       </button>
       <button
-        className="article_vote_button"
+        className='article_vote_button'
         onClick={() => {
           clickHandler(-1);
         }}
